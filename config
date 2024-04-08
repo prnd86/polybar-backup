@@ -1,0 +1,83 @@
+;==========================	===========================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = /home/markus/.config/polybar/master.conf
+;include-file = /home/markus/.config/polybar/progressbar.conf
+include-file = /home/markus/.config/polybar/modules.conf
+
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+[bar/openbox-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+
+modules-left   = jgmenu workspaces
+modules-center = pkg window_switch clock
+;modules-center = pkg window_switch clock mpd
+; modules-right  = ${env:POLYBAR_MODULES:temperature pkg network volume}
+modules-right  = network temperature coreuse memory battery net volume
+
+;=====================================================
+;     i3 Bars
+;=====================================================
+
+[bar/i3-bar]
+inherit = bar/master
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+
+modules-left   = jgmenu i3 menu window_switch mpd filesystem battery pacman-updates
+modules-center = mpd-label
+modules-right  = time date wired-network wireless-network temperature memory volume
+;modules-left = keyboard
+;modules-right = coreuse
+;modules-center = clock
+;modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network volume}
+
+;[bar/mpd]
+;inherit = bar/mpd
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+;monitor =
+
+;modules-left   =
+;modules-center = mpd-label
+;modules-right  =
+
+
+;=====================================================
+;     Bspwm Bars
+;=====================================================
+
+[bar/bspwm-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+
+modules-left   = bspwm menu
+modules-center = clock
+modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network volume}
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+[bar/generic-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+
+modules-left   = workspaces menu
+modules-center = clock
+modules-right  = ${env:POLYBAR_MODULES:coreuse temperature memory pkg network volume}
+
+
